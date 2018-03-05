@@ -1,0 +1,22 @@
+<div class="bg">
+    <div id="container">
+        <div class="title">
+            <h1>达内集团</h1>
+            <h2>训练营</h2>
+            <h2>线上订位系统</h2>
+            <hr>
+            <h6>Tarena Training Camp on-line Booking System</h6>
+        </div>
+        <div id="loginBox">
+            <div><img src="../../assets/img/login/logo.png" alt=""></div>
+            <div>
+                <input type="text" (keydown.enter)="login()" [(ngModel)]="myUser" name="uname" placeholder="用户名">
+            </div>
+            <div>
+                <input type="password" (keydown.enter)="login()" [(ngModel)]="myPwd" name="upwd" placeholder="密&nbsp;&nbsp;&nbsp;码">
+            </div>
+            <div class="msg">{{tipMsg}}</div>
+            <div><input type="button" value="登录" class="loginBtn" (click)="login()"></div>
+        </div>
+    </div>
+</div>

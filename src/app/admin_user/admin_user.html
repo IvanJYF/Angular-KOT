@@ -1,0 +1,116 @@
+<div class="main clear">
+    <nav class="side-nav">
+        <ul>
+            <li class="active">
+                <a routerLink="/adminUser"><img src="../../assets/img/admin/user.png" title="用户管理"></a>
+            </li>
+            <li>
+                <a routerLink="/adminCamp"><img src="../../assets/img/admin/camp.png" title="训练营管理"></a>
+            </li>
+            <li>
+                <a routerLink="/adminStu"><img src="../../assets/img/admin/stu.png" title="学员管理"></a>
+            </li>
+        </ul>
+    </nav>
+    <div id="containter">
+        <my-header show="1"></my-header>
+        <div id="content" class="clear">
+            <!--结果提示-->
+            <div class="tips"></div>
+            <div class="addInfo">
+                <div class="addHead">
+                    <h2>新建用户</h2>
+                </div>
+                <form id="form">
+                    <ul class="user-form">
+                        <li>
+                            <label for="uname">用&nbsp;&nbsp;户&nbsp;名</label>
+                            <input type="text"  id="uname" name="uname" placeholder="请输入用户名">
+                        </li>
+                        <li>
+                            <label for="upwd">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码</label>
+                            <input type="password" id="upwd" name="upwd" placeholder="请输入密码">
+                        </li>
+                        <li>
+                            <label for="usex">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别</label>
+                            <select  name="usex" id="usex">
+                                <option value="男" selected>男</option>
+                                <option value="女">女</option>
+                            </select>
+                        </li>
+                        <li>
+                            <label for="uJob">职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位</label>
+                            <select name="uJob" id="uJob">
+                                <option value="咨询顾问">咨询顾问</option>
+                                <option value="职业发展顾问">职业发展顾问</option>
+                                <option value="项目经理">项目经理</option>
+                            </select>
+                        </li>
+                        <li>
+                            <label for="uTel">联系电话</label>
+                            <input type="text" id="uTel" name="uTel" placeholder="请输入联系电话">
+                        </li>
+                        <li class="errMsg">
+
+                        </li>
+                        <li class="add-control">
+                            <button class="user-add"></button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <div class="user-table">
+                <table align="center">
+                    <thead>
+                        <tr>
+                            <th colspan="5" class="tab-title">全部用户</th>
+                            <th class="tab-control">
+                                <button class="user-edit"></button>
+                                <button class="user-del" (click)="isShow(true)"></button>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>全选<input type="checkbox" (click)="allCkb($event)" id="ckbAll"></th>
+                            <th>用户名</th>
+                            <th>性别</th>
+                            <th>密码</th>
+                            <th>职位</th>
+                            <th>联系电话</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+                        <!--<tr>
+                            <td><input type="checkbox" name="ckb" value="姓名"></td>
+                            <td>佘琦雯</td>
+                            <td>女</td>
+                            <td>sqw123456</td>
+                            <td>职业发展顾问</td>
+                            <td>13112234252</td>
+                        </tr>
+                        -->
+                        <tr *ngFor="let u of userData" [class.active]="allCkbState">
+                            <td><input type="checkbox" [checked]="allCkbState" (click)="change($event)" name="ckb" [value]="u.uname"></td>
+                            <td>{{u.uname}}</td>
+                            <td>{{u.usex}}</td>
+                            <td>{{u.upwd}}</td>
+                            <td>{{u.uJob}}</td>
+                            <td>{{u.uTel}}</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+                <page [pageCount]="pageCount" (sendPageNum)="getPageNum($event)"></page>    
+            </div>
+        </div>
+    </div>
+    <div class="dialog">
+        <div class="delBox">
+            <div><img src="../../assets/img/camp/gantan.png"></div>
+            <h4>是否删除该学员</h4>
+            <div>
+                <button id="delBtn" (click)="delUser()">删除</button>
+                <button id="closeBtn" (click)="isShow(false)">取消</button>
+            </div>
+        </div>
+    </div>
+</div>

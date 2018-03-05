@@ -1,0 +1,17 @@
+<header id="header">
+    <ul class="content-tab clear">
+        <li [ngClass]="{active:isShow1}" > <a routerLink="/adminUser">用户管理</a></li>
+        <li [ngClass]="{active:isShow2}" > <a routerLink="/adminCamp">训练营管理</a></li>
+        <li [ngClass]="{active:isShow3}" > <a routerLink="/adminStu">学员管理</a></li>
+    </ul>
+    <div class="header-right clear">
+         <div class="search">
+             <input type="text" placeholder="搜索" name="kw">
+         </div>
+         <div class="userInfo">
+             <img src="../../assets/img/camp/ad.png">
+             <span>{{userName}}</span>
+         </div>
+         <div class="exit hL" (click)="logout()"></div>
+     </div>
+</header>
