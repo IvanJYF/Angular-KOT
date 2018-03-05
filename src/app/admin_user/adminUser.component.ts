@@ -54,7 +54,7 @@ export class AdminUserComponent implements OnInit {
         } else {
             $("#ckbAll").prop("checked", false);
         }
-    }
+    }   
 
     //数据显示
     showData(i: number) {
